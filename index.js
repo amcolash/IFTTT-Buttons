@@ -24,11 +24,11 @@ function updateButtons() {
         var e = events[i];
 
         var container = document.createElement("div");
-        container.classList = "buttonContainer pointer";
+        container.classList = "buttonContainer";
 
         var button = document.createElement("button");
         button.setAttribute("onclick", "trigger('" + e.event + "')");
-        button.className = "icon-switch pointer";
+        button.className = "icon-switch icon pointer";
         container.appendChild(button);
 
         var br = document.createElement("br");
@@ -37,6 +37,11 @@ function updateButtons() {
         var label = document.createElement("span");
         label.innerText = e.name;
         container.appendChild(label);
+
+        var remove = document.createElement("button");
+        remove.setAttribute("onclick", "promptRemove('" + e.name + "', '" + e.event + "')");
+        remove.className = "icon-bin remove pointer";
+        container.appendChild(remove);
 
         buttons.appendChild(container);
     }
@@ -52,8 +57,28 @@ function promptEvent() {
     }
 }
 
+function promptRemove(name, event) {
+    var remove = confirm("Are you sure you want to remove " + name + "?");
+
+    if (remove) removeEvent(name, event);
+}
+
 function addEvent(name, event) {
     events.push({name: name, event: event});
+    saveEvents();
+    updateButtons();
+}
+
+/* Will only remove the first found button */
+function removeEvent(name, event) {
+    for (var i = 0; i < events.length; i++) {
+        var e = events[i];
+        if (e.name === name && e.event === event) {
+            events.splice(i, 1);
+            break;
+        }
+    }
+
     saveEvents();
     updateButtons();
 }
