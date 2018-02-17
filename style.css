@@ -11,11 +11,14 @@ body {
 
 #buttons {
 	padding: 1em;
+	text-align: center;
 }
 
 #buttons .buttonContainer {
 	display: inline-block;
-	text-align: center;
+	vertical-align: top;
+	width: 9em;
+	padding: 0.5em;
 }
 
 #buttons button {
@@ -24,8 +27,12 @@ body {
     display: inline-block;
 }
 
+#buttons span {
+	word-break: break-all;
+}
+
 #buttons .icon {
-	margin: 0.5em;
+	margin: 0.25em;
 	border-radius: 50%;
 	font-size: 3em;
 	padding: 0.5em;

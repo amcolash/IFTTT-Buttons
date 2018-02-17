@@ -105,7 +105,7 @@ function promptKey() {
 }
 
 function setKey(key) {
-    setCookie("key", key, 365);
+    setCookie("key", key);
 }
 
 function getKey() {
@@ -117,6 +117,10 @@ var icons = ["home", "home2", "home3", "office", "newspaper", "pencil", "pencil2
 
 
 /* From https://www.w3schools.com/js/js_cookies.asp */
+
+function setCookie(cname, cvalue) {
+    setCookie(cname, exdays, 365);
+}
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
