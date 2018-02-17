@@ -118,11 +118,8 @@ var icons = ["home", "home2", "home3", "office", "newspaper", "pencil", "pencil2
 
 /* From https://www.w3schools.com/js/js_cookies.asp */
 
-function setCookie(cname, cvalue) {
-    setCookie(cname, exdays, 365);
-}
-
 function setCookie(cname, cvalue, exdays) {
+    if (exdays === undefined) exdays = 365;
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
