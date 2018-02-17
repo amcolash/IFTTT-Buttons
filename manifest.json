@@ -1,0 +1,8 @@
+{
+    "short_name": "IFTTT",
+    "name": "IFTTT Webhook Buttons",
+    "background_color": "#999",
+    "theme_color": "#666",
+    "display": "standalone",
+    "orientation": "portrait"
+}
