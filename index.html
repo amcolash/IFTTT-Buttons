@@ -8,6 +8,8 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="cleartype" content="on">
+
+    <link rel="canonical" href="https://amcolash.github.io/IFTTT-WebhookButtons/" />
     
     <link rel="icon" sizes="192x192" href="icon.png">
     <link rel="apple-touch-icon" href="icon.png">
@@ -38,7 +40,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker
-                .register('/service-worker.js')
+                .register('/IFTTT-WebhookButtons/service-worker.js', { scope: '/IFTTT-WebhookButtons/' })
                 .then(function () { console.log("Service Worker Registered"); });
         }
     </script>
