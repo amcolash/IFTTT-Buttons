@@ -48,8 +48,7 @@ body {
 
 #offline {
 	position: sticky;
-	bottom: 0;
-	padding: 0.5em;
+	top: 0;
 	overflow: hidden;
 	background-color: rgb(255, 195, 31);
 	color: #555;

@@ -20,6 +20,8 @@ function updateOffline() {
 
     offline.style.maxHeight = maxHeight;
     offline.style.maxHeight = navigator.onLine ? "0" : maxHeight;
+
+    offline.style.padding = navigator.onLine ? "0" : "0.5em";
 }
 
 function getEvents() {
