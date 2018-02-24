@@ -3,7 +3,24 @@ var events = [];
 window.addEventListener('load', function () {
     getEvents();
     updateButtons();
+    updateOffline();
 });
+
+window.addEventListener('online', updateOffline);
+window.addEventListener('offline', updateOffline);
+
+function updateOffline() {
+    var offline = document.getElementById("offline");
+    offline.style.opacity = navigator.onLine ? "0" : "1";
+
+    // Yuck, this makes the maxHeight reflective of the current device width (probably a better way out there)
+    var maxHeight = "1em";
+    if (window.innerWidth < 706) maxHeight = "2em";
+    if (window.innerWidth < 482) maxHeight = "3em";
+
+    offline.style.maxHeight = maxHeight;
+    offline.style.maxHeight = navigator.onLine ? "0" : maxHeight;
+}
 
 function getEvents() {
     var eventsString = getCookie("events");
@@ -87,12 +104,14 @@ function trigger(event) {
     var key = getKey();
     if (key.length == 0) {
         alert("You need to set up your IFTTT key first!");
-    } else {
+    } else if (navigator.onLine) {
         var url = "https://maker.ifttt.com/trigger/" + event + "/with/key/" + getKey();
 
         var httpRequest = new XMLHttpRequest()
         httpRequest.open('GET', url)
         httpRequest.send()
+    } else {
+        alert("You are offline, this button did not fire.")
     }
 }
 
