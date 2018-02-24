@@ -3,7 +3,7 @@
 // Identifier for this app (this needs to be consistent across every cache update)
 var APP_PREFIX = 'IFTTTWebHooks'
 // Version of the off-line cache (change this value everytime you want to update cache)
-var VERSION = 'version_01'
+var VERSION = 'version_02'
 var CACHE_NAME = APP_PREFIX + VERSION
 
 // Add URL you want to cache in this list.
@@ -22,6 +22,12 @@ var URLS = [
     "/fonts/icomoon.woff?1qgahv",
     "/fonts/icomoon.svg?1qgahv#icomoon"
 ];
+
+if (self.location.hostname !== "localhost") {
+    for (var i = 0; i < URLS.length; i++) {
+        URLS.push("/IFTTT-WebhookButtons/" + URLS[i]);
+    }
+}
 
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
