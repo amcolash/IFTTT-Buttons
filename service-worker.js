@@ -6,6 +6,7 @@ var APP_PREFIX = 'IFTTTWebHooks'
 var VERSION = 'version_02'
 var CACHE_NAME = APP_PREFIX + VERSION
 
+// This is appended in live env
 var GITHUB_REPO = "/IFTTT-WebhookButtons";
 
 // Add URL you want to cache in this list.
@@ -25,6 +26,7 @@ var URLS = [
     "/fonts/icomoon.svg?1qgahv#icomoon"
 ];
 
+// Append github repo location if not locally developing
 if (self.location.hostname !== "localhost") {
     for (var i = 0; i < URLS.length; i++) {
         URLS[i] = GITHUB_REPO + URLS[i];
