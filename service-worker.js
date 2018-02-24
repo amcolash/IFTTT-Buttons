@@ -25,7 +25,7 @@ var URLS = [
 
 if (self.location.hostname !== "localhost") {
     for (var i = 0; i < URLS.length; i++) {
-        URLS.push("/IFTTT-WebhookButtons/" + URLS[i]);
+        URLS[i] = "/IFTTT-WebhookButtons/" + URLS[i];
     }
 }
 
