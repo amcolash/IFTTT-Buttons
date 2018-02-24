@@ -6,6 +6,8 @@ var APP_PREFIX = 'IFTTTWebHooks'
 var VERSION = 'version_02'
 var CACHE_NAME = APP_PREFIX + VERSION
 
+var GITHUB_REPO = "/IFTTT-WebhookButtons";
+
 // Add URL you want to cache in this list.
 var URLS = [
     "/",
@@ -25,7 +27,7 @@ var URLS = [
 
 if (self.location.hostname !== "localhost") {
     for (var i = 0; i < URLS.length; i++) {
-        URLS[i] = "/IFTTT-WebhookButtons/" + URLS[i];
+        URLS[i] = GITHUB_REPO + URLS[i];
     }
 }
 
