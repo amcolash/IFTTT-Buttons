@@ -1,4 +1,5 @@
 var events = [];
+var timeout;
 
 window.addEventListener("load", function () {
     getEvents();
@@ -137,17 +138,28 @@ function getKey() {
 
 
 function showNotif(message, color) {
-    // Get the snackbar DIV
-    var x = document.getElementById("notif");
+    // get the notif div
+    var n = document.getElementById("notif");
+    n.innerHTML = message;
+
+    // Don't kill the notif, just let it go and change text
+    if (timeout !== undefined) {
+        return;
+    }
+
+    // Get the notif container DIV
+    var c = document.getElementById("notifContainer");
 
     // Add the "show" class to DIV
-    x.className = "show " + color;
-    x.innerHTML = message;
+    c.className = "show";
+    n.className = color;
 
     // After 3 seconds, remove the show class from DIV
-    setTimeout(function () {
-        x.className = "";
-        x.innerHTML = "";
+    timeout = setTimeout(function () {
+        c.className = "";
+        n.className = "";
+        n.innerHTML = "";
+        timeout = undefined;
     }, 3000);
 }
 

@@ -3,7 +3,7 @@
 // Identifier for this app (this needs to be consistent across every cache update)
 var APP_PREFIX = "IFTTTWebHooks";
 // Version of the off-line cache (change this value everytime you want to update cache)
-var VERSION = "version_04";
+var VERSION = "version_05";
 var CACHE_NAME = APP_PREFIX + VERSION;
 
 // This is appended in live env
