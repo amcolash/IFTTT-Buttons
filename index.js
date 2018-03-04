@@ -1,13 +1,13 @@
 var events = [];
 
-window.addEventListener('load', function () {
+window.addEventListener("load", function () {
     getEvents();
     updateButtons();
     updateOffline();
 });
 
-window.addEventListener('online', updateOffline);
-window.addEventListener('offline', updateOffline);
+window.addEventListener("online", updateOffline);
+window.addEventListener("offline", updateOffline);
 
 function updateOffline() {
     var offline = document.getElementById("offline");
@@ -110,7 +110,7 @@ function trigger(event) {
         var url = "https://maker.ifttt.com/trigger/" + event + "/with/key/" + getKey();
 
         var httpRequest = new XMLHttpRequest();
-        httpRequest.open('GET', url);
+        httpRequest.open("GET", url);
         httpRequest.send();
 
         showNotif("Sent trigger: " + event, "green");
@@ -163,10 +163,10 @@ function setCookie(cname, cvalue, exdays) {
 
 function getCookie(cname) {
     var name = cname + "=";
-    var ca = document.cookie.split(';');
+    var ca = document.cookie.split(";");
     for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-        while (c.charAt(0) == ' ') {
+        while (c.charAt(0) == " ") {
             c = c.substring(1);
         }
         if (c.indexOf(name) == 0) {
