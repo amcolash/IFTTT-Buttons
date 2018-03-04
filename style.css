@@ -2,6 +2,10 @@ body {
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+button {
+	outline: none;
+}
+
 #header {
 	background-color: #666;
 	color: white;
@@ -77,6 +81,54 @@ body {
 
 .clear {
 	clear: both;
+}
+
+/* Notif stlying */
+#notif {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the notif */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the notif when clicking on a button (class added with JavaScript) */
+#notif.show {
+    visibility: visible; /* Show the notif */
+
+/* Add animation: Take 0.5 seconds to fade in and out the notif. 
+However, delay the fade out process for 2.5 seconds */
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#notif.red {
+	background-color: #e55;
+}
+
+#notif.orange {
+	background-color: #ea0;
+}
+
+#notif.green {
+	background-color: #5c5;
+}
+
+/* Animations to fade the notif in and out */
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
 }
 
 /* CSS Clear */

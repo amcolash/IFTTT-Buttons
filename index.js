@@ -105,15 +105,17 @@ function removeEvent(name, event) {
 function trigger(event) {
     var key = getKey();
     if (key.length == 0) {
-        alert("You need to set up your IFTTT key first!");
+        showNotif("You need to set up your IFTTT key first!", "red");
     } else if (navigator.onLine) {
         var url = "https://maker.ifttt.com/trigger/" + event + "/with/key/" + getKey();
 
-        var httpRequest = new XMLHttpRequest()
-        httpRequest.open('GET', url)
-        httpRequest.send()
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('GET', url);
+        httpRequest.send();
+
+        showNotif("Sent trigger: " + event, "green");
     } else {
-        alert("You are offline, this button did not fire.")
+        showNotif("You are offline, this button did not fire.", "orange");
     }
 }
 
@@ -131,6 +133,22 @@ function setKey(key) {
 
 function getKey() {
     return getCookie("key");
+}
+
+
+function showNotif(message, color) {
+    // Get the snackbar DIV
+    var x = document.getElementById("notif");
+
+    // Add the "show" class to DIV
+    x.className = "show " + color;
+    x.innerHTML = message;
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () {
+        x.className = "";
+        x.innerHTML = "";
+    }, 3000);
 }
 
 /* From https://www.w3schools.com/js/js_cookies.asp */
