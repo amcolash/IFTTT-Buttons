@@ -36,7 +36,7 @@ function saveEvents() {
 }
 
 function updateButtons() {
-    var buttons = document.getElementById("buttons")
+    var buttons = document.getElementById("buttons");
     buttons.innerHTML = "";
 
     for (var i = 0; i < events.length; i++) {
